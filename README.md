@@ -1,5 +1,6 @@
 # mcp-1c
 Small and useful local MCP for 1C:Enterprise
+
 Маленький и полезный MCP для 1С:Предприятие
 
 <human>
@@ -15,7 +16,6 @@ Small and useful local MCP for 1C:Enterprise
 </human>
 <img width="666" height="362" alt="image" src="https://github.com/user-attachments/assets/79d226c5-5a6e-4842-b844-c50933d11d8a" />
 <img width="934" height="336" alt="image" src="https://github.com/user-attachments/assets/e61eec94-6300-4e11-ba09-63a204fca040" />
-<img width="1233" height="180" alt="image" src="https://github.com/user-attachments/assets/61256535-62b0-4193-b439-70e72d5a7493" />
 
 
 # mcp-1c-onescript — установка
@@ -37,7 +37,7 @@ MCP-сервер для работы с выгрузкой конфигурац�
 C:\mcp-1c\
 ```
 
-Структура должна быть:
+Структура получится:
 ```
 C:\mcp-1c\
   main.os

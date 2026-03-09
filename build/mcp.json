@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcp-1c-onescript": {
+      "command": "oscript",
+      "args": ["C:\\mcp-1c\\main.os"]
+    }
+  }
+}

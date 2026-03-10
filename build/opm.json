@@ -1,6 +1,8 @@
 {
   "name": "1c-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "stdout MCP server for 1C/OneScript — tools for BSL/XML config",
-  "dependencies": {}
+  "dependencies": {
+    "sql": ""
+  }
 }

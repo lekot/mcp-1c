@@ -36,6 +36,9 @@
 	Если Имя = "read_module" Тогда
 		Возврат ReadModuleHandler.ВыполнитьReadModule(Аргументы);
 	КонецЕсли;
+	Если Имя = "syntax_help_search" Тогда
+		Возврат SyntaxHelpSearchHandler.ВыполнитьSyntaxHelpSearch(Аргументы);
+	КонецЕсли;
 	Возврат Новый Структура("Текст, Ошибка", "Unknown tool", Истина);
 КонецФункции
 

@@ -22,12 +22,23 @@ Small and useful local MCP for 1C:Enterprise
 
 # mcp-1c-onescript — установка
 
-MCP-сервер для работы с выгрузкой конфигурации 1С в Cursor. Даёт агенту инструменты `bsl_search`, `xml_search`, `config_list`, `read_module` — поиск по коду и метаданным без ручного обхода файлов.
+MCP-сервер для работы с выгрузкой конфигурации 1С в Cursor. Даёт агенту 5 инструментов: `bsl_search`, `xml_search`, `config_list`, `read_module`, `syntax_help_search` — поиск по коду, метаданным и справке синтакс-помощника без ручного обхода файлов.
+
+## Инструменты
+
+| Инструмент | Что делает |
+|---|---|
+| `bsl_search` | Поиск по BSL-файлам (подстрока или regex) |
+| `xml_search` | Поиск по XML-файлам конфигурации |
+| `config_list` | Список файлов/каталогов конфигурации |
+| `read_module` | Читает BSL-модуль: весь файл, список методов или тело конкретного метода. Принимает путь к файлу или каталогу (рекурсивный поиск `*.bsl`) |
+| `syntax_help_search` | Поиск по справке синтакс-помощника 1С (SQLite-БД) |
 
 ## Требования
 
 - [OneScript 2.0+](https://oscript.io/) — `oscript` должен быть в PATH
 - Cursor IDE
+- Для `syntax_help_search`: пакет `sql` (`opm install sql`) и БД справки (см. ниже)
 
 ## Установка
 
@@ -61,7 +72,10 @@ C:\mcp-1c\
   "mcpServers": {
     "mcp-1c-onescript": {
       "command": "oscript",
-      "args": ["C:\\mcp-1c\\main.os"]
+      "args": ["C:\\mcp-1c\\main.os"],
+      "env": {
+        "SHCNTX_HELP_DB": "C:\\mcp-1c\\src\\data\\shcntx_help.db"
+      }
     }
   }
 }
@@ -73,7 +87,29 @@ C:\mcp-1c\
 
 ### 3. Перезапустить MCP в Cursor
 
-Settings → MCP → кнопка рестарт рядом с `mcp-1c-onescript`. Должно появиться `4 tools`.
+Settings → MCP → кнопка рестарт рядом с `mcp-1c-onescript`. Должно появиться `5 tools`.
+
+## Настройка справки синтакс-помощника (syntax_help_search)
+
+Инструмент ищет по SQLite-базе справки 1С. База не входит в репозиторий — её нужно собрать из файла `shcntx_ru.hbk` установки 1С.
+
+### 1. Установить зависимость
+
+```powershell
+opm install sql
+```
+
+### 2. Собрать БД справки
+
+```powershell
+python scripts/hbk_to_sqlite.py --no-fts5 "C:\Program Files\1cv8\8.3.xx.xxxx\bin\shcntx_ru.hbk" "C:\mcp-1c\src\data\shcntx_help.db"
+```
+
+> Флаг `--no-fts5` обязателен — oscript-sql не поддерживает FTS5.
+
+### 3. Указать путь к БД в конфиге
+
+В `mcp.json` в блоке `env` укажи абсолютный путь к файлу `.db` (пример уже есть в конфиге выше).
 
 ## Подключение к проекту с 1С
 
@@ -84,6 +120,18 @@ build\1c-mcp-metadata.mdc  →  <твой-проект>\.cursor\rules\1c-mcp-met
 ```
 
 Правило активируется автоматически при открытии `.bsl` и `.xml` файлов конфигурации.
+
+## Установка через opm
+
+```powershell
+opm install 1c-mcp
+```
+
+Или из файла:
+
+```powershell
+opm install -f 1c-mcp-0.2.0.ospx
+```
 
 ## Проверка
 

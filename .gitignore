@@ -1,0 +1,7 @@
+# БД справки синтакс-помощника — собирается локально из shcntx_ru.hbk
+build/src/data/*.db
+
+# Временные файлы сборки
+*.ospx.tmp
+shcntx_out/
+*shcntx*.zip

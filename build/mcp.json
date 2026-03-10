@@ -2,7 +2,10 @@
   "mcpServers": {
     "mcp-1c-onescript": {
       "command": "oscript",
-      "args": ["C:\\mcp-1c\\main.os"]
+      "args": ["C:\\mcp-1c\\main.os"],
+      "env": {
+        "SHCNTX_HELP_DB": "C:\\mcp-1c\\src\\data\\shcntx_help.db"
+      }
     }
   }
 }

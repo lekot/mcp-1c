@@ -20,9 +20,6 @@ Small and useful local MCP for 1C:Enterprise
 <img width="666" height="362" alt="image" src="https://github.com/user-attachments/assets/79d226c5-5a6e-4842-b844-c50933d11d8a" />
 <img width="934" height="336" alt="image" src="https://github.com/user-attachments/assets/e61eec94-6300-4e11-ba09-63a204fca040" />
 
-а также маленький хук для экономии токенов на гит статус/дифф в режиме агента
-<img width="924" height="687" alt="image" src="https://github.com/user-attachments/assets/3e6b3da7-2ea8-4086-8705-a881a921208f" />
-
 # mcp-1c-onescript — установка
 
 MCP-сервер для работы с выгрузкой конфигурации 1С в Cursor. Даёт агенту инструменты `bsl_search`, `xml_search`, `config_list`, `read_module` — поиск по коду и метаданным без ручного обхода файлов.

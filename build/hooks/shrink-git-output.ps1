@@ -60,7 +60,8 @@ try {
     $summary = "git failed. git add -A && git commit -m `"<msg>`""
 }
 
-$agent_message = $summary
+# Сообщение агенту: это не запрет git, а только сжатие вывода status/diff для экономии токенов. add/commit разрешены.
+$agent_message = "Summary (to save tokens): $summary. You can run git add and git commit; they are allowed and will not be blocked."
 
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $obj = @{ permission = "deny"; agent_message = $agent_message }

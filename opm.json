@@ -1,0 +1,6 @@
+{
+  "name": "1c-mcp",
+  "version": "0.1.0",
+  "description": "stdout MCP server for 1C/OneScript — tools for BSL/XML config",
+  "dependencies": {}
+}

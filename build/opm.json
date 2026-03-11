@@ -2,6 +2,7 @@
   "name": "1c-mcp",
   "version": "0.2.0",
   "description": "stdout MCP server for 1C/OneScript — tools for BSL/XML config",
+  "license": "GPL-3.0",
   "dependencies": {
     "sql": ""
   }

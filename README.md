@@ -141,3 +141,6 @@ echo '{"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilit
 
 Должен вернуть JSON с `"result":{"protocolVersion":"2024-11-05",...}`.
 
+## Лицензия
+
+Licensed under [GPL-3.0](LICENSE).

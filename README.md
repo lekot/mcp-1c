@@ -89,28 +89,6 @@ C:\mcp-1c\
 
 Settings → MCP → кнопка рестарт рядом с `mcp-1c-onescript`. Должно появиться `5 tools`.
 
-## Настройка справки синтакс-помощника (syntax_help_search)
-
-Инструмент ищет по SQLite-базе справки 1С. База не входит в репозиторий — её нужно собрать из файла `shcntx_ru.hbk` установки 1С.
-
-### 1. Установить зависимость
-
-```powershell
-opm install sql
-```
-
-### 2. Собрать БД справки
-
-```powershell
-python scripts/hbk_to_sqlite.py --no-fts5 "C:\Program Files\1cv8\8.3.xx.xxxx\bin\shcntx_ru.hbk" "C:\mcp-1c\src\data\shcntx_help.db"
-```
-
-> Флаг `--no-fts5` обязателен — oscript-sql не поддерживает FTS5.
-
-### 3. Указать путь к БД в конфиге
-
-В `mcp.json` в блоке `env` укажи абсолютный путь к файлу `.db` (пример уже есть в конфиге выше).
-
 ## Подключение к проекту с 1С
 
 Чтобы агент автоматически использовал MCP при работе с выгрузкой 1С, скопируй правило в проект:
@@ -122,12 +100,6 @@ build\1c-mcp-metadata.mdc  →  <твой-проект>\.cursor\rules\1c-mcp-met
 Правило активируется автоматически при открытии `.bsl` и `.xml` файлов конфигурации.
 
 ## Установка через opm
-
-```powershell
-opm install 1c-mcp
-```
-
-Или из файла:
 
 ```powershell
 opm install -f 1c-mcp-0.2.0.ospx

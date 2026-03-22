@@ -16,6 +16,7 @@ Small and useful local MCP for 1C:Enterprise
 
 можно раскатить скрипты из пакета: opm install -f 1c-mcp-0.2.0.ospx - пока из файла, до хаба не добрался
 
+P.S. Есть более мощный функционально набор скиллов у коллег https://github.com/Nikolay-Shirokov/cc-1c-skills
 </human>
 <img width="666" height="362" alt="image" src="https://github.com/user-attachments/assets/79d226c5-5a6e-4842-b844-c50933d11d8a" />
 <img width="934" height="336" alt="image" src="https://github.com/user-attachments/assets/e61eec94-6300-4e11-ba09-63a204fca040" />
